@@ -1,0 +1,12 @@
+<app-about [@fadeInOut]="showDiv ? 'in' : 'out'" *ngIf="showDiv"></app-about>
+<app-fullstack [@fadeInOut]="showDiv ? 'in' : 'out'" *ngIf="!showDiv"></app-fullstack>
+<!--
+<label class="switch">
+<input type="checkbox" (click)="onToggle()">
+<span class="slider round"></span>
+</label>
+-->
+<div class="navigationDiv">
+            <button class="navigationProjet previous" (click)="onToggle()">&lt;</button>
+            <button alt="Suivant" class="navigationProjet next" (click)="onToggle()">&gt;</button>
+</div>

@@ -1,0 +1,16 @@
+<hr class="hr-line"  id="skills">
+<section  class="skills">
+        <article class="articleSkills">
+            <h2>Mes compétences : </h2>
+                    <!-- technologie.component.html -->
+                    <div class="tech-skills-container">
+                    <div *ngFor="let skill of techSkills" class="tech-skill-column">
+                        <h3>{{ skill.tech }}</h3>
+                        <div class="progress-bar-container">
+                          <div class="progress-bar" [style.width]="skill.level + '%'"></div>
+                        </div>
+                      </div>
+                      </div>
+        </article>
+
+</section>

@@ -1,0 +1,20 @@
+<div class="presentation" id="presentation">
+    <a href="/accueil">
+        <h1 class="nom">{{monNom}}</h1>
+        <h1 class="prenom">Cyril</h1>
+        <h1 class="mobilePresentation"><span class="nomSpan">Melin</span><span class="prenomSpan">Cyril</span></h1>
+    </a>
+    <button class="menu-button" (click)="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</div>
+
+<ul class="navbar"  [style.display]="showMenu ? 'none' : 'flex'">
+    <li><a class="menuLien" (click)="scrollTo('about')" [class.active]="activeLink === 'about'">À propos</a></li>
+    <li><a class="menuLien" (click)="scrollTo('skills')" [class.active]="activeLink === 'skills'">Compétences</a></li>
+    <li><a class="menuLien" (click)="scrollTo('projet')" [class.active]="activeLink === 'projet'">Projets</a></li>
+    <li><a class="menuLien" (click)="scrollTo('interet')" [class.active]="activeLink === 'interet'">Centre d'intêrets</a></li>
+    <li><a class="menuLien" (click)="scrollTo('contact')" [class.active]="activeLink === 'contact'">Contact</a></li>
+</ul>

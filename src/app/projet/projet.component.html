@@ -1,0 +1,45 @@
+<hr class="hr-line"  id="projet">
+   <section class="projet" #madivRef>
+        <h2>{{mesProjets.length+" "}}projets réalisés : </h2>
+        <div class="navigationProjetDiv">
+            <button class="navigationProjet previous" (click)="showPreviousProjets()" [ngStyle]="{ 'display': startIndex === 0 ? 'none' : 'block' }">&lt;</button>
+            <button alt="Suivant" class="navigationProjet next" (click)="showNextProjets()" [ngStyle]="{ 'display':startIndex + 1 >= mesProjets.length? 'none' : 'block' }">&gt;</button>
+        </div>
+        <div class="mesprojets">
+            <article class="monprojet" *ngFor="let projet of mesProjets">
+                <div class="projetOpacity"  *ngIf="projet.id >= startIndex && projet.id < startIndex + 1" [style.opacity]="opacityProjet">
+                    <h5>Projet {{projet.id+1}}</h5>
+                    <div class="image-container">
+                        <p>
+                            <img class="imgComputer"  src="assets/compute.png"/>
+                            <img class="imgProjet"  src={{projet.image}} (mouseover)="projet.showDetail = true"/>
+                        </p>
+                
+                        <div class="overlay texte" [@fadeInOut]="projet.detailsVisible ? 'in' : 'out'" *ngIf="!projet.detailsVisible">
+                            <h4>{{ projet.titre}}</h4>
+                        <a class="menuLien orange" (click)="afficherDetails(projet)">-> Voir détails &lt;-</a>       
+                        </div>
+                    </div>  
+                  
+                    <div class="details-projet"  *ngIf="projet.detailsVisible" [@fadeInOut]="projet.detailsVisible ? 'in' : 'out'">
+                   
+                        <h3>{{ projet.titre}}</h3>
+                        <p class="orange vert">Technologie(s) utilisée(s) </p>
+                        <p class="data-projet">{{projet.technologie}}</p>
+                        <p class="orange">Description</p> 
+                        <p class="data-projet">{{projet.description}}</p>
+                        <p class="orange" *ngIf="projet.lien !== ''">{{projet.lien}}</p>
+                        <a class="close"  (click)="fermerDetails(projet)"><p (mouseenter)="ajouterTremble()" (mouseleave)="retirerTremble()" [class.tremble]="tremble">FERMER</p></a>
+                    </div>
+               
+                </div>
+            </article>
+
+        </div>
+
+   
+
+    </section>
+
+
+ 
