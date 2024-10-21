@@ -132,10 +132,10 @@
             width: 50%;
             height: 100px;
             margin-right: 10%;
+            margin-bottom: 5%;
     }
 
       .navigationProjet{
-margin-top: 10px;
         z-index: 50;
       }
       .previous{
