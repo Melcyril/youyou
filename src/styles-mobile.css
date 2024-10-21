@@ -156,6 +156,9 @@
     body{
         font-size: small;
     }
+    ul{
+        font-size: 0.5rem;
+    }
     .fullstack{
       
         font-size: 0.5rem;
