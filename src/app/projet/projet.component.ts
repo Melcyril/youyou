@@ -30,7 +30,7 @@ export class ProjetComponent implements OnInit {
   constructor(private renderer2: Renderer2, private el: ElementRef) {}
 
   mesProjets:Projet[] = PROJETS;
-  startIndex = 5;
+  startIndex = this.mesProjets.length-1;
   suivantIndex= this.startIndex +1
   opacityProjet  = 1;
   altMessageNext="Projet"+this.startIndex.toString+"-"+"Projet"+this.suivantIndex.toString()
@@ -63,7 +63,7 @@ ngOnInit(): void {
       }
     }
 
-    console.log(projet.id+"-id-")
+    //console.log(projet.id+"-id-")
     
   }
 

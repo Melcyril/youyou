@@ -1,6 +1,7 @@
 <hr class="hr-line" id="contact">
 <section  class="contact">
     <article class="articleContact">
+
         <h2>Me contacter : </h2>
         <!-- contact.component.html -->
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
@@ -19,10 +20,33 @@
 
   </form>
   <p *ngIf="messageSent">Message envoyé</p>
+  
 
-
-        <i class="fab fa-linkedin"></i>
+  <div *ngIf="myMention">
+    <h3>Mentions Légales</h3>
+    <p class="mentionP"><strong>Nom de l'entreprise :</strong> {{monEntreprise}}</p>
+    <p class="mentionP"><strong>Nom commercial :</strong> {{monEntreprise}}</p>
+    <p class="mentionP"><strong>Forme juridique :</strong> Auto-entrepreneur</p>
+    <p class="mentionP"><strong>Adresse du siège social :</strong> {{monAdresse}}</p>
+    <p class="mentionP"><strong>Email :</strong>&nbsp;<a href="mailto:melcydev@gmail.com">{{monMail}}</a></p>
+    <p class="mentionP"><strong>Directeur de la publication :</strong> {{monNomPrenom}}</p>
+    <p class="mentionP"><strong>Responsable de la rédaction :</strong> {{monNomPrenom}}</p>
+    <p class="mentionP"><strong>Hébergeur :</strong> {{myHost}}</p>
+    <p class="mentionP"><strong>Adresse :</strong> {{myAdresseHost}}</p>
+    <p class="mentionP"><strong>Site web :</strong> &nbsp;<a href="https://github.com">{{myLinkHost}}</a></p>
+    <h3>Utilisation des Cookies</h3>
+    <p class="mentionP">Ce site n'utilise pas de cookies pour collecter des informations personnelles ou suivre les utilisateurs. Aucune donnée de navigation n'est stockée ou partagée avec des tiers.</p>
+    <h3><strong>Propriété intellectuelle</strong></h3>
+    <p class="mentionP">Le contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de {{monEntreprise}}, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de {{monEntreprise}}.</p>
+    <h3><strong>Responsabilité</strong></h3>
+    <p class="mentionP">{{monEntreprise}} ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site [Nom du site], et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.</p>
+    <a class="close" (click)="retour()">Fermer</a>
+</div>
+<p><a class="mentionLien" (click)="mention()" *ngIf="!myMention">Mentions Légales</a></p>
+  <p class="orange">© Copyright 2024 - {{monEntreprise}}. Tous droits réservés.</p>
+        
         <!--
+  <i class="fab fa-linkedin"></i>
         <i class="fab fa-twitter"></i>
         <i class="fab fa-instagram"></i>
        

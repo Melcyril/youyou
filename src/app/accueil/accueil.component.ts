@@ -26,13 +26,27 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 })
 
-export class AccueilComponent{
-  constructor(private globalService: GlobalService) {}
-showDiv:boolean=false
+export class AccueilComponent {
+  showScrollbar = false; // Variable pour afficher/masquer la barre de défilement
 
-onToggle():void{
-  this.showDiv = !this.showDiv;
-  this.globalService.isScrollAbout=!this.globalService.isScrollAbout
-console.log('------'+this.showDiv+'iiii '+this.globalService.isScrollAbout)
-}
-} 
+  // Méthode pour détecter le défilement
+  @HostListener('window:scroll', ['$event'])
+  
+  onScroll(event: UIEvent): void {
+    // Affichez la barre de défilement pendant le défilement
+    this.showScrollbar = true;
+  
+    // Réinitialisez le délai d'inactivité
+    clearTimeout(this.scrollTimeout);
+  
+    // Masquez la barre de défilement après 2 secondes d'inactivité
+    this.scrollTimeout = setTimeout(() => {
+      this.showScrollbar = false;
+    }, 2000);
+  }
+  
+  private scrollTimeout: any; // Variable pour gérer le délai d'inactivité
+  
+  
+  }
+

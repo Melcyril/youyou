@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { environment } from "../../environments/environnement"
 import { NgForm } from '@angular/forms';
+import { GlobalService } from '../global.service';
 
 
 @Component({
@@ -10,14 +11,21 @@ import { NgForm } from '@angular/forms';
   styles: [
   ]
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
+  constructor(private globalService: GlobalService) {}
   messageSent = false;
   nom: string =""
   prenom: string =""
   email: string =""
   message: string =""
-  
-
+  myMention:boolean=false
+  monEntreprise:string=environment.entreprise_
+  monAdresse:string=environment.adress_
+  monMail:string=environment.mymail_
+  monNomPrenom:string=environment.name_+" "+environment.surname_
+  myHost:string=environment.myHost_
+  myAdresseHost:string=environment.adressHost_
+  myLinkHost:string=environment.linkHost_
 
   onSubmit(contactForm: NgForm) {
     if(contactForm.valid){
@@ -43,5 +51,17 @@ export class ContactComponent {
   }else{
     console.log('Le formulaire est invalide.');
   }
+  }
+  ngOnInit(): void {
+   
+    console.log(this.mention)
+  }
+  mention(){
+    this.globalService.myLegaleMention=true; 
+    this.myMention=this.globalService.myLegaleMention
+  }
+  retour(){
+    this.globalService.myLegaleMention=false; 
+    this.myMention=this.globalService.myLegaleMention
   }
 }

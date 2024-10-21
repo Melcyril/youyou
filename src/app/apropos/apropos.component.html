@@ -1,12 +1,9 @@
 <app-about [@fadeInOut]="showDiv ? 'in' : 'out'" *ngIf="showDiv"></app-about>
-<app-fullstack [@fadeInOut]="showDiv ? 'in' : 'out'" *ngIf="!showDiv"></app-fullstack>
-<!--
-<label class="switch">
-<input type="checkbox" (click)="onToggle()">
-<span class="slider round"></span>
-</label>
--->
+<app-fullstack [@fadeInOut]="showDiv ? 'out' : 'in'" *ngIf="!showDiv"></app-fullstack>
+
 <div class="navigationDiv">
-            <button class="navigationProjet previous" (click)="onToggle()">&lt;</button>
-            <button alt="Suivant" class="navigationProjet next" (click)="onToggle()">&gt;</button>
+            <button class="navigationProjet previous" (mouseover)="showEtiquettePrecedent = true" (mouseout)="showEtiquettePrecedent = false" *ngIf="showDiv" (click)="onToggle(1)">&lt;</button>
+            <span *ngIf="showEtiquettePrecedent" class="etiquettePrecedent">Precedent</span>
+            <button (mouseover)="showEtiquetteSuivant = true" (mouseout)="showEtiquetteSuivant = false" alt="Suivant" class="navigationProjet next" *ngIf="!showDiv" (click)="onToggle(2)">&gt;</button>
+            <span *ngIf="showEtiquetteSuivant" class="etiquetteSuivant">Suivant</span>
 </div>

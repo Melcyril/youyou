@@ -7,4 +7,5 @@ export class GlobalService {
 
   isHomePage: boolean = true;
   isScrollAbout: boolean=false;
+  myLegaleMention: boolean=false;
 }

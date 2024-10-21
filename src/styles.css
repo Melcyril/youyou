@@ -47,7 +47,7 @@ ul{
     list-style-type: none;
 }
 /*--------------------------------------------LIENS---------------------------------------------*/
-.menuLien{
+.menuLien,.mentionLien{
     text-decoration: none;
     color:whitesmoke;
     text-transform: uppercase;
@@ -56,7 +56,7 @@ ul{
     transform: scaleX(1); /* Agrandissement horizontal */
     transition: letter-spacing 0.5s ease, transform 0.5s ease;   
 }
-.menuLien:hover{
+.menuLien:hover,.mentionLien:hover{
     opacity: 0.7; 
    
     cursor: pointer;
@@ -107,44 +107,52 @@ overflow: hidden;
         height: 15vh;
         z-index: 49;
     }
-    .nom,.prenom{
-        margin:0;
-        color: rgb(206, 108, 16);
-        font-weight: bolder;
-        font-size: 2 rem;
-        position: absolute;
-        left: 2.75%;
-        transform: rotate(10deg); /* Incline le texte de 10 degrés */
-        /* Préfixes de navigateur pour une meilleure compatibilité */
-        -moz-transform: rotate(-5deg);
-        -webkit-transform: rotate(-5deg);
-        -khtml-transform: rotate(-5deg);
-        -ms-transform: rotate(1-5deg);
-        text-shadow: 1px 1px 2px rgb(255, 131, 6), 0 0 1em red, 0 0 0.2em rgb(214, 110, 6);
-       
+    h1{
+
     }
     .nom{
-        margin-top: 1.2%;
-        letter-spacing: 7px;
+        margin:0;
+        font-weight: bolder;
+        font-size: 1.7rem;
+        text-decoration: none;
+        text-shadow: 1px 1px 2px rgba(255, 131, 6, 0.5);
+        position: absolute;
+        left: 1.5%;
+        margin-top: 2.5%;
+        letter-spacing: 1px;
+        background: linear-gradient(to top, rgb(22, 18, 4) 50%, rgba(255, 131, 6, 0.507) 50%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        color: transparent;
+        animation: fillColor 8s forwards infinite 1s alternate;
+        background-size: 100% 200%;
+        background-position: 0 100%;
     }
-    .prenom{
-        margin-top:3.25%; 
-        margin-left: 0.5%;
-        color: rgba(203, 206, 16, 0.5);
-        letter-spacing: 6px;
+    /* permet de voir le lien sur firefox en version dark  */
+    html[native-dark-active] .nom {
+        font-size: 1.7rem;
+        text-shadow: var(--native-dark-text-shadow);
+        color: #ff0808;
     }
+    @keyframes fillColor {
+        0% {
+            background-position: 0 100%;
+        }
+        50% {
+            background-position: 0 0%;
+        }
+        100% {
+            background-position: 0 100%;
+        }
+    }
+    
     .nom:hover{
-        letter-spacing: 7px; /* Espacement agrandi */
+        letter-spacing: 1.5px; /* Espacement agrandi */
         transform: scaleY(1.2); /* Agrandissement horizontal */
         transition: letter-spacing 0.5s ease, transform 0.5s ease;
         cursor: pointer;
     }
-    .prenom:hover{
-        letter-spacing: 4px; /* Espacement agrandi */
-        transform: scaleX(1.2); /* Agrandissement horizontal */
-        transition: letter-spacing 0.5s ease, transform 0.5s ease;
-        cursor: pointer; 
-    }
+
     .nomSpan{
 
         color: rgb(206, 108, 16);
@@ -157,10 +165,7 @@ overflow: hidden;
         text-shadow: 1px 1px 2px rgb(255, 131, 6), 0 0 1em red;
         padding-right: 0;
     }
-    h1{
-        color: rgb(206, 108, 16);
-        text-shadow: 1px 1px 2px rgb(255, 131, 6), 0 0 1em red, 0 0 0.2em rgb(214, 110, 6);
-    }
+
     .prenomSpan{
         color: rgba(203, 206, 16, 0.5);
         font-weight: bolder;
@@ -189,26 +194,26 @@ overflow: hidden;
       }
 /*---------------------------------------Placements LIGNES------------------------------------------*/
       #about{
-        top:0;
+        top:100vh;
       }
       #fullstack{
         top: 100vh;
       }
       #skills{
-        top:106vh;
+        top:210vh;
       }
       #projet{
-        top:330vh;
+        top:410vh;
       }
       #interet{
-        top:490vh;
+        top:520vh;
       }
       #gestion{
         top:500vh;
       }
       #contact{
 
-        top:587vh;
+        top:600vh;
       }
     section {
         position: absolute;
@@ -325,9 +330,10 @@ overflow: hidden;
     position: absolute;
     top:130vh;
     width: 100%;
-    height: 20vh;
+    height: 50vh;
     z-index: 48;
 }
+
 .frontback{
     flex-basis: 30%; /* Ajustez la largeur des colonnes selon vos besoins */
     padding: 20px;
@@ -379,7 +385,7 @@ overflow: hidden;
 h4{
     background-color: rgba(206, 51, 6, 0.7);
     padding: 7px 2px 7px 2px;
-    margin-left: 24.6%;
+    margin-left: 24.8%;
     margin-top: 10%;
     width: 49.5%;
     transition: transform 0.3s ease; 
@@ -417,15 +423,17 @@ h4{
 }
 .imgProjet{
     width: 50%;
-    height: auto;
-    max-height: 23vh;
+    height: 51.5%;
     z-index: 35;
     position: absolute;
-   right: 25%;
-   top:8.5%;
-   opacity: 0.9;
+   right: 25.2%;
+   top:8.4%;
+   opacity: 0.6;
    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.5);
    padding: 5px 0 0 0;
+}
+.image-container:hover p .imgProjet {
+    top:6.5%;
 }
 .imgComputer{
     width: 70%;
@@ -452,11 +460,11 @@ h4{
     background-color: rgba(231, 0, 0,0);
     border: #800000;
     color:rgba(231, 0, 0, 0.5);
-    width: 80px;
+    width: 6%;
     cursor: pointer;
     border: 1px solid red;
-    border-radius: 50px;
-    font-size: 60px;
+    border-radius: 50%;
+    font-size: 3.7rem;
     cursor: pointer;
 
 }
@@ -464,7 +472,7 @@ h4{
     background-color: rgba(206, 106, 6, 0.158);
     border-color: #800000;
     color:rgb(190, 32, 32);
-    width: 80px;
+    width: 6%;
     cursor: pointer;
     font-size: 3.7rem;
     border: 2px solid #800000;
@@ -482,6 +490,7 @@ h3{
 }
 .orange{
     color:rgb(244, 255, 246);
+    font-size: xx-small;
     font-weight: bold;
     text-transform: uppercase;
     background-color: #9b0000;
@@ -496,7 +505,22 @@ h3{
     background-color: rgba(56, 121, 54, 0.5);
 }
 .next{
-    margin-left: 93%;
+    position: absolute;
+    left: 93%;
+}
+.previous{
+    position: absolute;
+    left: 1%;
+}
+.etiquetteSuivant{
+    position: absolute;
+    left: 93%;
+    top:72%;
+  }
+.etiquettePrecedent{
+    position: absolute;
+    left: 1%;
+    top:72%;
 }
 .interet{
     top:570vh;
@@ -695,8 +719,13 @@ input:-webkit-autofill:active  {
     color:rgb(206, 6, 6);
     cursor: pointer;
   }
-  /*--------------------------------------------pad---------------------------------------------*/
-@media screen and (max-width: 1000px) {
+  .mentionP{
+    width: 70%;
+    padding: 0 15% 0 15%;
+}
+
+  /*--------------------------------------------pad vertical---------------------------------------------*/
+@media screen and (max-width: 1024px) {
     .navbar {
   
         background-color: rgb(206, 106, 6);
@@ -719,8 +748,14 @@ input:-webkit-autofill:active  {
     
     
     }
+    .titreFull{
+        margin-top: 12%;
+    }
     ul{
         list-style-type: none;
+    }
+    h1{
+        font-size: 1.5rem;
     }
     /*--------------------------------------------LIENS---------------------------------------------*/
     .menuLien{
@@ -730,8 +765,8 @@ input:-webkit-autofill:active  {
         letter-spacing: 2px;
     }
     .nom{
-        margin-top: 1.2%;
-        letter-spacing: 7px;
+        margin-top: 5%;
+        letter-spacing: 1px;
     }
     .prenom{
         margin-top:5%; 
@@ -749,8 +784,16 @@ input:-webkit-autofill:active  {
         width: 100%;
         margin: 0;
       }
-
-
+    .previous,.next{
+        margin-top: 30%;
+    }
+}
+/*--------------------------------------------pad horizontal---------------------------------------------*/
+@media screen and (max-height: 768px) and (max-width: 1024px) {
+    .nom{
+        margin-top: 3%;
+        letter-spacing: 1px;
+    }
 }
 /*--------------------------------------------MOBILE---------------------------------------------*/
 @media screen and (max-width: 600px) {
@@ -834,7 +877,9 @@ input:-webkit-autofill:active  {
     
         }
     .navigationDiv{
-        margin-top: 70vh;
+        margin-top: 60vh;
+        width: 50%;
+        margin-left: 21%;
     }
       article{
         width: 100%;
@@ -881,8 +926,9 @@ input:-webkit-autofill:active  {
     .navigationProjetDiv{
         position: relative;
             display: inline-block;
-            width: 100%;
+            width: 50%;
             height: 100px;
+            margin-right: 2%;
     }
 
       .navigationProjet{
@@ -890,11 +936,11 @@ input:-webkit-autofill:active  {
         margin-top: 0;z-index: 50;
       }
       .previous{
-        position: absolute;
-        margin-left: 35%;
+   
+      
       }
       .next{
-        margin-left: 55%;
+      
       }
       .animation-caractere{
         width: 100%;
@@ -908,6 +954,7 @@ input:-webkit-autofill:active  {
        
     }
     .navigationDiv{
+        position: absolute;
         margin-top: 70vh;
     }
     .espace{
@@ -929,7 +976,7 @@ input:-webkit-autofill:active  {
         font-size: small;
     }
     .fullstack{
-        top: 60vh;
+      
         font-size: 0.5rem;
         margin: 0;
         padding: 0;
@@ -937,11 +984,9 @@ input:-webkit-autofill:active  {
     .espace{
         padding: 0;
     }
-    .about{
-      
-    }
+
     .skills{
-        top: 220vh;
+      
         font-size: 0.5rem;
         margin: 0;
         padding: 0;
@@ -951,7 +996,7 @@ input:-webkit-autofill:active  {
         margin-top: 0;
     }
     .projet{
-        top: 450vh;
+    
         font-size: 0.5rem;
         margin: 0;
         padding: 0;
@@ -981,9 +1026,9 @@ input:-webkit-autofill:active  {
         margin-top: 8vh;
     }
     .about p{
-        margin: 0px;
-        padding: 5px;
-        width: 100%;
+        margin: 1% 10% 1% 10%;
+        padding: 0;
+        width: 80%;
     }
     .titreFull{
         margin:0;

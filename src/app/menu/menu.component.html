@@ -1,14 +1,16 @@
 <div class="presentation" id="presentation">
-    <a href="/accueil">
-        <h1 class="nom">{{monNom}}</h1>
-        <h1 class="prenom">Cyril</h1>
-        <h1 class="mobilePresentation"><span class="nomSpan">Melin</span><span class="prenomSpan">Cyril</span></h1>
-    </a>
+    <a class="nom" href="/">{{monTitreSite}}</a>
+    <h1 class="mobilePresentation"> <a class="nomSpan" href="/">{{monTitreSite}}</a></h1>
+        <!--<h1 class="prenom">Cyril</h1>
+          <h1 class="mobilePresentation"><span class="nomSpan">Melin</span>
+          <span class="prenomSpan">Cyril</span></h1>-->
+ 
     <button class="menu-button" (click)="toggleMenu()">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </button>
+    
 </div>
 
 <ul class="navbar"  [style.display]="showMenu ? 'none' : 'flex'">

@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit, ElementRef, Renderer2 } from '@angular
 import { PROJETS } from '../../shared/projet-mock'; 
 import {Projet} from '../../shared/projet';
 import { GlobalService } from '../global.service';
-
+import { environment } from "../../environments/environnement"
 
 @Component({
   selector: 'app-menu',
@@ -12,8 +12,8 @@ import { GlobalService } from '../global.service';
 })
 export class MenuComponent implements OnInit{
   constructor(private el: ElementRef, private renderer: Renderer2,private globalService: GlobalService) {}
-  monNom:string="Melin"
-  monPrenom:string="Cyril"
+  monTitreSite:string=environment.titresite_
+ // monPrenom:string="Cyril"
   private prevX = 0;
   private prevY = 0;
   activeLink: string = '';
@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit{
 
     const scaleX = 1 + velocityX;
     const scaleY = 1 + velocityY;
-    console.log(scaleX+'_'+scaleY)
+   // console.log(scaleX+'_'+scaleY)
     this.renderer.setStyle(
       this.el.nativeElement,
       'transform',

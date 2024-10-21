@@ -16,6 +16,7 @@ import { FullstackComponent } from './fullstack/fullstack.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimationCaractereComponent } from './animation-caractere/animation-caractere.component';
 import { AproposComponent } from './apropos/apropos.component';
+import { MentionsLegalesComponent } from './mentions-legales/mentions-legales.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AproposComponent } from './apropos/apropos.component';
     AnimationTreeComponent,
     FullstackComponent,
     AnimationCaractereComponent,
-    AproposComponent
+    AproposComponent,
+    MentionsLegalesComponent
   ],
   imports: [
     BrowserAnimationsModule,
