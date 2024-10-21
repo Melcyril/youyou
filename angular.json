@@ -52,7 +52,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/styles-tablette.css",
+              "src/styles-mobile.css"
             ]
           },
           "configurations": {
